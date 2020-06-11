@@ -92,15 +92,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					.permitAll()
 				.antMatchers("/api/auth/**")
 					.permitAll()
-				.antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")
+				.antMatchers("/api/user/checkUsernameAvailability", 
+						"/api/user/checkEmailAvailability")
 					.permitAll()
-				.antMatchers("/api/nav/**", "/api/users/**", "/api/user/me").hasAuthority("USER")
-				.anyRequest()
-					.authenticated();
+				.antMatchers("/api/nav/**", "/api/users/**", "/api/user/me")
+					.hasAuthority("USER").anyRequest().authenticated();
 		
 		// Custom JTW security filter
 		http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
-	
-	
 }

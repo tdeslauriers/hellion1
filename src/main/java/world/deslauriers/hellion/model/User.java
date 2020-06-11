@@ -27,6 +27,8 @@ import world.deslauriers.hellion.model.audit.DateAudit;
 		)
 public class User extends DateAudit {
 	
+	private static final long serialVersionUID = 3512550283017130240L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

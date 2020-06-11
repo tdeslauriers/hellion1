@@ -38,8 +38,12 @@ public class ImageDaoTest {
 	@Before
 	public void setUp() {
 		
-		pic2016 = new Image.ImageBuilder().navcategory(10).name(IMAGE_2016).build();
-		pic2017 = new Image.ImageBuilder().navcategory(11).name(IMAGE_2017).build();		
+		pic2016 = new Image();
+		pic2016.setNavcategory(NAV_CATEGORY_0);
+		pic2016.setName(IMAGE_2016);
+		pic2017 = new Image();
+		pic2017.setNavcategory(NAV_CATEGORY_1);
+		pic2017.setName(IMAGE_2017);
 	}
 	
 	@Test

@@ -47,8 +47,12 @@ public class ImageServiceTest {
 	@Before
 	public void setUp() {
 		
-		pic2017_0 = new Image.ImageBuilder().navcategory(11).name(IMAGE_2017_0).build();
-		pic2017_1 = new Image.ImageBuilder().navcategory(11).name(IMAGE_2017_1).build();
+		pic2017_0 = new Image();
+		pic2017_0.setNavcategory(11);
+		pic2017_0.setName(IMAGE_2017_0);
+		pic2017_1 = new Image();
+		pic2017_1.setNavcategory(11);
+		pic2017_1.setName(IMAGE_2017_1);
 		
 		mockImagesList = new ArrayList<Image>();
 		mockImagesList.add(pic2017_0);

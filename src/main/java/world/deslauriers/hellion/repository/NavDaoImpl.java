@@ -19,6 +19,7 @@ public class NavDaoImpl implements NavDao {
 	public List<Nav> findAll() {
 		
 		String sql = "SELECT id, nav, category FROM nav";
+		
 		return jdbcTemplate.query(sql, 
 				(resultSet, rowNumber) -> {
 					
@@ -35,6 +36,7 @@ public class NavDaoImpl implements NavDao {
 	public Optional<Nav> findOneNav(String nav){
 		
 		String sql = "SELECT id, nav, category FROM nav WHERE nav = ?";
+		
 		return jdbcTemplate.queryForObject(sql, new Object[] {nav},
 					(resultSet, rowNumber) -> 
 						Optional.of(new Nav(
@@ -45,7 +47,4 @@ public class NavDaoImpl implements NavDao {
 					)
 		);
 	}
-
-	
-	
 }

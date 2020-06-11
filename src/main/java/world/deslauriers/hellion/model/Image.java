@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="image1")
+@Table(name="image")
 public class Image implements Serializable {
 	
 	private static final long serialVersionUID = -7912597309119940676L;
@@ -28,15 +28,26 @@ public class Image implements Serializable {
 	
 	@Column(name="navcategory")
 	private int navcategory;
+	
+	@Column(name="uuid")
+	private String uuid;
 
 	public Image() {}
+	
+	public Image(String name, String description, String uuid) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.uuid = uuid;
+	}
 
-	public Image(int id, String name, String description, int navcategory) {
+	public Image(int id, String name, String description, int navcategory, String uuid) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.navcategory = navcategory;
+		this.uuid = uuid;
 	}
 
 	public int getId() {
@@ -71,46 +82,16 @@ public class Image implements Serializable {
 		this.navcategory = navcategory;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getUuid() {
+		return uuid;
 	}
 
-	public static class ImageBuilder {
-		 
-		private int id;
-		private String name;
-		private String description;
-		private int navcategory;
-		
-		public ImageBuilder id(int id) {
-			this.id = id;
-			return this;
-		}
-		
-		public ImageBuilder name(String name) {
-			this.name = name;
-			return this;
-		}
-		
-		public ImageBuilder description(String description) {
-			this.description = description;
-			return this;
-		}
-		
-		public ImageBuilder navcategory(int navcategory) {
-			this.navcategory = navcategory;
-			return this;
-		}
-		
-		public Image build() {
-			return new Image(id, name, description, navcategory);
-		}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
-	
-	@Override
-	public String toString() {
-		return "Image [id=" + id + ", name=" + name + ", description=" + description + ", navcategory=" + navcategory
-				+ "]";
-	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}	
 	
 }

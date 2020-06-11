@@ -27,5 +27,10 @@ public class ImageServiceImpl implements ImageService {
 		
 		return imageDao.findByYearId(navId);
 	}
-
+	
+	@Override
+	public Optional<Image> findImageByUuid(String uuid) {
+		
+		return imageDao.findByUuid(uuid);
+	}
 }

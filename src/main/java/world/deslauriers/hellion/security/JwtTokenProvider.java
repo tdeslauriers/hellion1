@@ -19,7 +19,8 @@ import io.jsonwebtoken.UnsupportedJwtException;
 @Component
 public class JwtTokenProvider {
 	
-	public static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
+	public static final Logger logger = 
+			LoggerFactory.getLogger(JwtTokenProvider.class);
 	
 	@Value("${app.jwtSecret}")
 	private String jwtSecret;
@@ -29,7 +30,8 @@ public class JwtTokenProvider {
 	
 	public String generateToken(Authentication authentication) {
 		
-		UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+		UserPrincipal userPrincipal = 
+				(UserPrincipal) authentication.getPrincipal();
 		
 		Date now = new Date();
 		Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
